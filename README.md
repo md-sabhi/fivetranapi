@@ -151,6 +151,7 @@ Currently consists of logging and requests.
 ## Credits 
 
 Mohammed Sabhi @ Ecolab
+
 Elijah Davis @ Fivetran [fivetran-elijahdavis](https://github.com/fivetran-elijahdavis/)
 
 ## License
