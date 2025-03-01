@@ -190,7 +190,7 @@ class connect():
                 return response.json()
         except requests.exceptions.RequestException as e:
             self.logger.error(f'Request failed: {e}')
-            throw(e)
+            raise(e)
         
     def get_account_info(self):
         resp = self.call_api('GET', 'account/info')
