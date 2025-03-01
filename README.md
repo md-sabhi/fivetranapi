@@ -1,4 +1,4 @@
-# fivetranapi
+# Fivetran API Python wrapper
 
 Extendable Python wrapper for [Fivetran](https://www.fivetran.com/)'s [REST API](https://fivetran.com/docs/rest-api/api-reference/) - reusing snippets of code from Fivetran's [api_framework examples](https://github.com/fivetran/api_framework/blob/main/examples/). 
 
@@ -127,11 +127,12 @@ Currently consists of logging and requests.
 
 ## Author
 
-Thomas Eibner [LinkedIn](https://www.linkedin.com/in/thomaseibner/)
+[Thomas Eibner](https://github.com/thomaseibner/) [LinkedIn](https://www.linkedin.com/in/thomaseibner/)
 
 ## Credits 
 
 Mohammed Sabhi @ Ecolab
+Elijah Davis @ Fivetran [fivetran-elijahdavis](https://github.com/fivetran-elijahdavis/)
 
 ## License
 
