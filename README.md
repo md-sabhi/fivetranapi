@@ -39,6 +39,25 @@ ft.print_connections(connections)
 ```
 Provides a way to access all the connections from the [API](https://fivetran.com/docs/rest-api/api-reference/connections/list-connections). The `print_connections` method takes an optional array of connection objects to avoid re-querying the API unless necessary.
 
+### connectors
+
+```python
+resp = ft.get_connectors()
+# print out the valid connectors?
+```
+
+Uses the [metadata-connectors](https://fivetran.com/docs/rest-api/api-reference/connector-metadata/metadata-connectors) endpoint to retrieve all the valid connectors.
+
+### connector payload
+
+```python
+resp = ft.get_connector_schema('azure_sql_db')
+pretty_json = json.dumps(resp, indent=4)
+print(pretty_json)
+```
+
+Uses the [metadata-connector-config](https://fivetran.com/docs/rest-api/api-reference/connector-metadata/metadata-connector-config) endpoint to retrieve the configuration parameters for a connector type which will help craft the payload for creating a connector. 
+
 ### create connector
 
 ```python

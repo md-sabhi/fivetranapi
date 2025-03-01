@@ -190,7 +190,7 @@ class connect():
                 return response.json()
         except requests.exceptions.RequestException as e:
             self.logger.error(f'Request failed: {e}')
-            return None
+            throw(e)
         
     def get_account_info(self):
         resp = self.call_api('GET', 'account/info')
@@ -219,6 +219,18 @@ class connect():
         for connection in connections:
             self.logger.info('Connection Id: ' + connection.id + ' Group Id: ' + connection.group_id + ' Service: ' + connection.service + ' Schema: ' + connection.schema + ' Connected By: ' + connection.connected_by + ' Created At: ' + connection.created_at + ' Succeeded At: ' + connection.succeeded_at + ' Failed At: ' + connection.failed_at + ' Paused: ' + connection.paused + ' Pause After Trial: ' + connection.pause_after_trial + ' Sync Frequency: ' + connection.sync_frequency + ' Data Delay Threshold: ' + connection.data_delay_threshold + ' Data Delay Sensitivity: ' + connection.data_delay_sensitivity + ' Daily Sync Time: ' + connection.daily_sync_time + ' Schedule Type: ' + connection.schedule_type + ' Networking Method: ' + connection.networking_method + ' Proxy Agent Id: ' + connection.proxy_agent_id)
         return 1
+
+    def get_connectors(self):
+        connectors = self.call_api('GET', 'metadata/connector-types')
+        if connectors is not None:
+            return connectors
+        return
+
+    def get_connector_schema(self, connector):
+        schema = self.call_api('GET', f'metadata/connector-types/{connector}')
+        if schema is not None:
+            return schema
+        return None
 
     def create_connector(self, payload):
         resp = self.call_api('POST', 'connectors', payload)
