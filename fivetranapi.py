@@ -333,6 +333,24 @@ class connect():
                 self.logger.info('Private Link Id: ' + privatelink.id + ' Name: ' + privatelink.name + ' Region: ' + privatelink.region + ' Service: ' + privatelink.service + ' State: ' + privatelink.state + ' Account Id: ' + privatelink.account_id + ' Created At: ' + privatelink.created_at + ' Created By: ' + privatelink.created_by + ' Cloud Provider: ' + privatelink.cloud_provider + ' State Summary: ' + privatelink.state_summary + ' Config: ' + privatelink.config)
         return 1
 
+    def create_private_link(self, payload):
+        prvtlnk = self.call_api('POST', 'private-links', payload)
+        if prvtlnk is not None:
+            return privatelink(prvtlnk['data'])
+        return None
+    
+    def delete_private_link(self, private_link_id):
+        prvtlnk = self.call_api('DELETE', 'private-links/' + private_link_id)
+        if prvtlnk is not None:
+            return privatelink(prvtlnk['data'])
+        return None
+    
+    def update_private_link(self, private_link_id, payload):
+        prvtlnk = self.call_api('PATCH', 'private-links/' + private_link_id, payload)
+        if prvtlnk is not None:
+            return privatelink(prvtlnk['data'])
+        return None
+
     def get_user_detail(self, user_id):
         usr = self.call_api('GET', 'users/' + user_id)
         if usr is not None:

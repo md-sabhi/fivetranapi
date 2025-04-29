@@ -74,7 +74,7 @@ resp = ft.delete_connector('connector_id')
 # .. handle errors
 ```
 
-The `delete_connector` takes a connector_id as the only input. 
+The `delete_connector` function takes a connector_id as the only input. 
 
 ### destinations
 
@@ -121,6 +121,35 @@ ft.print_private_links()
 ```
 
 Uses the [get-private-links](https://fivetran.com/docs/rest-api/api-reference/private-links/get-private-links) and [get-private-link-details](https://fivetran.com/docs/rest-api/api-reference/private-links/get-private-link-details) endpoints to retrieve and log all private links.
+
+### create private link
+
+```python
+payload = {...}
+resp = ft.create_private_link(payload)
+# .. handle errors
+```
+
+To create a connector you have to provide an appropriate [payload](https://fivetran.com/docs/rest-api/api-reference/private-links/create-private-link?service=SOURCE_AZURE) based on the Fivetran documentation for each private link type. 
+
+### update private link
+
+```python
+payload = {...}
+resp = ft.create_private_link('private_link_id', payload)
+# .. handle errors
+```
+
+To update a private link you need the private link id and the payload you want to update the private link configuration with. 
+
+### delete private link
+
+```python
+resp = ft.delete_private_link('private_link_id')
+# .. handle errors
+```
+
+The `delete_private_link` function takes a private_link_id as the only input. 
 
 ### users
 
