@@ -136,7 +136,7 @@ To create a connector you have to provide an appropriate [payload](https://fivet
 
 ```python
 payload = {...}
-resp = ft.create_private_link('private_link_id', payload)
+resp = ft.update_private_link('private_link_id', payload)
 # .. handle errors
 ```
 

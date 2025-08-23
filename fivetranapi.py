@@ -202,23 +202,21 @@ class connect():
         if account is None:
             account = self.get_account_info()
         self.logger.info('Account Id: ' + account.account_id + ' Account Name: ' + account.account_name + ' User Id: ' + account.user_id + ' System Key Id: ' + account.system_key_id)
-        return 1
 
-    def get_connections(self):
-        resp = self.call_api('GET', 'connections', {'limit': 1})
+    def get_connections(self, limit=100):
+        resp = self.call_api('GET', 'connections', {'limit': limit})
         if resp is not None:
             connections = []
             for item in resp['data']['items']:
                 connections.append(connection(item))
             return connections
-        return 1
+        return None
 
     def print_connections(self, connections=None):
         if connections is None:
             connections = self.get_connections()
         for connection in connections:
             self.logger.info('Connection Id: ' + connection.id + ' Group Id: ' + connection.group_id + ' Service: ' + connection.service + ' Schema: ' + connection.schema + ' Connected By: ' + connection.connected_by + ' Created At: ' + connection.created_at + ' Succeeded At: ' + connection.succeeded_at + ' Failed At: ' + connection.failed_at + ' Paused: ' + connection.paused + ' Pause After Trial: ' + connection.pause_after_trial + ' Sync Frequency: ' + connection.sync_frequency + ' Data Delay Threshold: ' + connection.data_delay_threshold + ' Data Delay Sensitivity: ' + connection.data_delay_sensitivity + ' Daily Sync Time: ' + connection.daily_sync_time + ' Schedule Type: ' + connection.schedule_type + ' Networking Method: ' + connection.networking_method + ' Proxy Agent Id: ' + connection.proxy_agent_id)
-        return 1
 
     def get_connectors(self):
         connectors = self.call_api('GET', 'metadata/connector-types')
@@ -270,7 +268,6 @@ class connect():
         if destinations is not None:
             for destination in destinations:
                 self.logger.info('Destination Id: ' + destination.id + ' Group Id: ' + destination.group_id + ' Networking Method: ' + destination.networking_method + ' Service: ' + destination.service + ' Private Link Id: ' + destination.private_link_id + ' Region: ' + destination.region + ' Timezone Offset: ' + destination.time_zone_offset + ' Setup Status: ' + destination.setup_status + ' Daylight Saving Time Enabled: ' + destination.daylight_saving_time_enabled + ' Hybrid Deployment Agent Id: ' + destination.hybrid_deployment_agent_id)
-        return 1
 
     def get_groups(self):
         # this has potential for cursor
@@ -293,7 +290,6 @@ class connect():
         if groups is not None:
             for group in groups:
                 self.logger.info('Group Id: ' + group.id + ' Name: ' + group.name + ' Created At: ' + group.created_at)
-        return 1
 
     def get_hybrid_deployment_agents(self):
         resp = self.call_api('GET', 'hybrid-deployment-agents', {'limit': 100})
@@ -309,7 +305,6 @@ class connect():
             hybrid_deployment_agents = self.get_hybrid_deployment_agents()
         for hybrid_deployment_agent in hybrid_deployment_agents:
             self.logger.info('Hybrid Deployment Agent Id: ' + hybrid_deployment_agent.id + ' Display Name: ' + hybrid_deployment_agent.display_name + ' Group Id: ' + hybrid_deployment_agent.group_id + ' Registered At: ' + hybrid_deployment_agent.registered_at + ' Usage: ' + hybrid_deployment_agent.usage)
-        return 1
 
     def get_private_link_detail(self, private_link_id):
         prvtlnk = self.call_api('GET', 'private-links/' + private_link_id)
@@ -331,7 +326,6 @@ class connect():
         if privatelinks is not None:
             for privatelink in privatelinks:
                 self.logger.info('Private Link Id: ' + privatelink.id + ' Name: ' + privatelink.name + ' Region: ' + privatelink.region + ' Service: ' + privatelink.service + ' State: ' + privatelink.state + ' Account Id: ' + privatelink.account_id + ' Created At: ' + privatelink.created_at + ' Created By: ' + privatelink.created_by + ' Cloud Provider: ' + privatelink.cloud_provider + ' State Summary: ' + privatelink.state_summary + ' Config: ' + privatelink.config)
-        return 1
 
     def create_private_link(self, payload):
         prvtlnk = self.call_api('POST', 'private-links', payload)
@@ -371,5 +365,4 @@ class connect():
         if users is not None:
             for user in users:
                 self.logger.info('User Id: ' + user.id + ' Email: ' + user.email + ' Verified: ' + user.verified + ' Invited: ' + user.invited + ' Picture: ' + user.picture + ' Phone: ' + user.phone + ' Role: ' + user.role + ' Active: ' + user.active + ' Given Name: ' + user.given_name + ' Created At: ' + user.created_at + ' Family Name: ' + user.family_name + ' Logged In At: ' + user.logged_in_at)
-        return 1
     
