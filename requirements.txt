@@ -1,5 +1,4 @@
 logging
 requests
 pyodbc
-# pydoc
-azure-storage-blo
+azure-storage-blob
