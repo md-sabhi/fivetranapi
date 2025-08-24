@@ -1,0 +1,29 @@
+{
+"payload": {
+    "group_id": "regenerated_matched",
+    "service": "azure_sql_db",
+    "trust_certificates": true,
+    "trust_fingerprints": true,
+    "run_setup_tests": true,
+    "paused": false,
+    "pause_after_trial": false,
+    "sync_frequency": 1440,
+    "data_delay_sensitivity": "NORMAL",
+    "data_delay_threshold": 0,
+    "daily_sync_time": "14:00",
+    "schedule_type": "auto",
+    "config": {
+        "tenant_id": "c1eb5112-7946-4c9d-bc57-40040cfe3a91",
+        "connection_type": "PrivateLink",
+        "update_method": "NATIVE_UPDATE",
+        "always_encrypted": true,
+        "auth_method": "Password",
+        "database": "0000000075_System",
+        "password": "pwd",
+        "port": 1433,
+        "host": "windowssqlserver.privatelink.database.windows.net",
+        "user": "test_user"
+        }
+    }
+}
+    

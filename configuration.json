@@ -1,0 +1,7 @@
+{
+    "driver": "ODBC Driver 17 for SQL Server",
+    "server": "windowssqlserver.database.windows.net,1433",
+    "database": "deployment",
+    "user": "test_user",
+    "password": "pwd"
+  }

@@ -1,2 +1,9 @@
 logging
+<<<<<<< HEAD
 requests
+=======
+requests
+pyodbc
+# pydoc
+azure-storage-blob
+>>>>>>> c73fcbe (Clean start)
